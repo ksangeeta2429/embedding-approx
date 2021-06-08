@@ -6,6 +6,9 @@ The pipeline for solving Specialized Embedding Approximation (SEA) involves two 
 
 <img src="EA_Pipeline-1.png" alt="EA-Pipeline"/>
 
+## Setup
+Create a virtual environment 
+
 ## How to Cite
 Kindly cite our work as:
 
