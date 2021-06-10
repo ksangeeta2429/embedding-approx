@@ -17,12 +17,15 @@ module load cudnn/9.0v7.3.0.29
 source activate l3embedding-tf-12-gpu
 
 SRCDIR=.
+
+## Begin user parameters
 ANNPATH=/path/to/sonyc-ust/annotations.csv
 TAXPATH=/path/to/sonyc-ust/data/dcase-ust-taxonomy.yaml
 EMBDIR=/path/to/embedding/directory
 OUTPUTDIR=path/to/output/directory
 NUM_HIDDEN=2
 HIDDEN_SIZE=128
+## End user parameters
 
 echo "NUM_HIDDEN=$NUM_HIDDEN"
 echo "HIDDEN_SIZE=$HIDDEN_SIZE"
