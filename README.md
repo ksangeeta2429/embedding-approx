@@ -37,11 +37,12 @@ Knowledge Distillation training involves submitting the following job (assuming 
 
 The following parameters in the job need to be set by the user:
 
-| Parameter            | Explanation                                                                                                   |
+| Parameter           | Explanation                                                                                                   |
 | ------------------- | ------------------------------------------------------------------------------------------------------------- |
 | APPROX_MODE         | The dimensionality reduction function used to transform teacher data ('pca' or 'umap')                        |
 | ASR                 | Sampling rate of student audio input representation                                                           |
 | NUM_MELS            | Number of melspectrogram bins in student audio input representation                                           |
+| NUM_DFT             | DFT size                                                                                                      |
 | HOP_LEN             | DFT hop length in student audio input representation                                                          |
 | AUDIO_DIR           | Path to raw in-domain audio files partitiond into train and validate subfolders                               |
 | EMBEDDING_DIR       | Path to transformed teacher embeddings on the above audio files partitiond into train and validate subfolders |
@@ -56,6 +57,9 @@ sbatch 03-train-approx-embedding-pca.sbatch
 ```
 
 You can keep tracking the GSheet for training progress.
+
+### Embedding Extranction on Downstream (SONY-UST) Dataset
+Download the annotated [SONYC-UST dataset](https://zenodo.org/record/3693077#.YMJX_vlKiUk). To extract embeddings on the data using the trained student model, run the job `jobs/emb_approx_mse/downstream/sonyc_ust/05-generate-embedding-samples-pca.sbatch`, setting the following parameters: 
 
 ## How to Cite
 Kindly cite our work as:
