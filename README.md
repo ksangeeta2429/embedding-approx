@@ -39,6 +39,14 @@ The following variables in the job need to be set by the user:
 | GOOGLE_DEV_APP_NAME | Name of GSheet for updating training results                                                                  |
 | GSHEET_ID           | Gsheet ID obtained from URL                                                                                   |
 
+After these have been set, run the following on your HPC:
+```
+cd jobs/emb_approx_mse/upstream/
+sbatch 03-train-approx-embedding-pca.sbatch
+```
+
+You can keep tracking the GSheet for training progress.
+
 ## How to Cite
 Kindly cite our work as:
 
