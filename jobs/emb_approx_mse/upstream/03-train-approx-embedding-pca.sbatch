@@ -26,6 +26,7 @@ LEARNING_RATE=0.0001
 ASR=8000
 NUM_MELS=64
 HOP_LEN=160
+NUM_DFT=1024
 AUDIO_DIR=path/to/domain/audio/data
 EMBEDDING_DIR=/path/to/transformed/teacher/embeddings/on/audio/data
 OUTPUT_DIR=/path/to/output/dir
@@ -62,6 +63,7 @@ python $SRCDIR/03_train_approx_embedding_mse.py \
 	--samp-rate $ASR \
 	--num-mels $NUM_MELS \
 	--hop-length $HOP_LEN \
+	--num-dft $NUM_DFT \
 	--learning-rate $LEARNING_RATE \
 	--random-state 20180216 \
 	--gsheet-id $GSHEET_ID \
