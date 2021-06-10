@@ -58,7 +58,7 @@ sbatch 03-train-approx-embedding-pca.sbatch
 
 You can keep tracking the GSheet for training progress.
 
-### Embedding Extranction on Downstream (SONY-UST) Dataset
+### Embedding Extraction on Downstream (SONY-UST) Dataset
 Download the annotated [SONYC-UST dataset](https://zenodo.org/record/3693077#.YMJX_vlKiUk). To extract embeddings on the data using the trained student model, run the job `jobs/emb_approx_mse/downstream/sonyc_ust/05-generate-embedding-samples-pca.sbatch`, setting the following parameters: 
 
 | Parameter           | Explanation                                                                                                   |
@@ -72,6 +72,17 @@ Download the annotated [SONYC-UST dataset](https://zenodo.org/record/3693077#.YM
 | OUTPUT_DIR          | Path to output directory                                                                                      |
 
 Note that you can directly use our trained SEA student models on downstream data; for details, refer to the [`edgel3`](https://pypi.org/project/edgel3/) Python package.
+
+### Downstream Classifier Training and Evaluation
+The final step is training a downstream classifier for SONYC-UST on the extracted embeddings. Run the job `jobs/emb_approx_mse/downstream/sonyc_ust/06-train-classifier-mil-pca.sbatch`, setting the following parameters:
+
+| Parameter           | Explanation                                                                                                   |
+| ------------------- | ------------------------------------------------------------------------------------------------------------- |
+| SONYC_UST_PATH      | Path to SONYC-UST data                                                           |
+| EMBDIR              | Path to embeddings directory                                                                        |
+| OUTPUTDIR           | Path to results directory                                                                                                      |
+| NUM_HIDDEN          | Number of fully-connected hidden layers in classifier                                                           |
+| HIDDEN_SIZE         | Size of each hidden layer in classifier                 |
 
 ## How to Cite
 Kindly cite our work as:
