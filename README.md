@@ -7,8 +7,19 @@ The pipeline for solving Specialized Embedding Approximation (SEA) involves two 
 <img src="EA_Pipeline-1.png" alt="EA-Pipeline"/>
 
 ## Knowledge Distillation Pipeline
+### Prerequisites
+1. [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
+2. `libsndfile`: On Windows and macOS, these will be installed via `pip`. However, on Linux this must be installed manually via your platform's package manager. For Debian-based distributions (such as Ubuntu), this can be done by running:
+
+    ```
+    apt-get install libsndfile1
+    ```
+
 ### Setup
-Create a virtual environment 
+Create a virtual environment `l3embedding-tf-12-gpu` using the `l3embedding-tf-12-gpu.yml` file in this repository:
+```
+conda env create -f l3embedding-tf-12-gpu.yml
+```
 
 ## How to Cite
 Kindly cite our work as:
