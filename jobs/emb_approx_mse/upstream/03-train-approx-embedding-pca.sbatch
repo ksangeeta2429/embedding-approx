@@ -17,26 +17,25 @@ module purge
 module load cudnn/9.0v7.3.0.29
 source activate l3embedding-tf-12-gpu
 
-SRCDIR=. 
+SRCDIR=.
+NUM_GPUS=2
+
+### Begin user parameters
 APPROX_MODE='pca'
-MODE=$1
-BATCH_SIZE=$2
-TIMESCALE=$3
-EMBLEN=$4
-LEARNING_RATE=0.0001 #$1 #Default: 0.00001
+LEARNING_RATE=0.0001
 ASR=8000
 NUM_MELS=64
 HOP_LEN=160
-AUDIO_DIR=$SCRATCH/sonyc_30mil
-EMBEDDING_DIR=$SCRATCH/reduced_embeddings/sonyc/pca/${MODE}/${TIMESCALE}/${BATCH_SIZE}/pca_batch_${BATCH_SIZE}_len_${EMBLEN}_kernel_linear
+AUDIO_DIR=path/to/domain/audio/data
+EMBEDDING_DIR=/path/to/transformed/teacher/embeddings/on/audio/data
 TRAIN_DATA_DIR=${AUDIO_DIR}/train
 VAL_DATA_DIR=${AUDIO_DIR}/validate
 EMBEDDING_TRAIN_DIR=${EMBEDDING_DIR}/train
 EMBEDDING_VALID_DIR=${EMBEDDING_DIR}/validate
-OUTPUT_DIR=$SCRATCH/embedding_approx_mse/models
-GOOGLE_DEV_APP_NAME='l3compression'
-GSHEET_ID='1iNfqw0mvBDSSvuFkj5nfu_Wg6lj7i6uZ59a2YJ694fo'
-NUM_GPUS=2
+OUTPUT_DIR=/path/to/output/dir
+GOOGLE_DEV_APP_NAME='gsheet-name'
+GSHEET_ID='gsheet-id-from-url'
+### End user parameters
 
 echo "APPROXIMATION=${APPROX_MODE}"
 echo "TRAIN_DATA_DIR=${TRAIN_DATA_DIR}"
