@@ -35,9 +35,9 @@ conda env create -f l3embedding-tf-12-gpu.yml
 ### Knowledge Distillation Training (Upstream)
 Knowledge Distillation training involves submitting the following job (assuming <img src="https://render.githubusercontent.com/render/math?math=\phi"> is PCA) on a SLURM HPC system: `embedding-approx/jobs/emb_approx_mse/upstream/03-train-approx-embedding-pca.sbatch`.
 
-The following variables in the job need to be set by the user:
+The following parameters in the job need to be set by the user:
 
-| Variable            | Explanation                                                                                                   |
+| Parameter            | Explanation                                                                                                   |
 | ------------------- | ------------------------------------------------------------------------------------------------------------- |
 | APPROX_MODE         | The dimensionality reduction function used to transform teacher data ('pca' or 'umap')                        |
 | ASR                 | Sampling rate of student audio input representation                                                           |
