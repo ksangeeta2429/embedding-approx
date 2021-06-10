@@ -30,7 +30,7 @@ echo "DFT=$NUM_DFT"
 
 SRCDIR=.
 L3_MODEL_PATH=/path/to/KD/student/models/model_best_valid_loss.h5
-SONYC_UST_PATH=/path/to/sonyc_ust
+SONYC_UST_PATH=/path/to/sonyc-ust
 DATA_DIR=$SONYC_UST_PATH/data
 METADATA_PATH=$DATA_DIR/annotations.csv
 OUTPUT_DIR=/path/to/output/directory
