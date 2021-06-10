@@ -28,14 +28,14 @@ NUM_MELS=64
 HOP_LEN=160
 AUDIO_DIR=path/to/domain/audio/data
 EMBEDDING_DIR=/path/to/transformed/teacher/embeddings/on/audio/data
-TRAIN_DATA_DIR=${AUDIO_DIR}/train
-VAL_DATA_DIR=${AUDIO_DIR}/validate
-EMBEDDING_TRAIN_DIR=${EMBEDDING_DIR}/train
-EMBEDDING_VALID_DIR=${EMBEDDING_DIR}/validate
 OUTPUT_DIR=/path/to/output/dir
 GOOGLE_DEV_APP_NAME='gsheet-name'
 GSHEET_ID='gsheet-id-from-url'
 ### End user parameters
+TRAIN_DATA_DIR=${AUDIO_DIR}/train
+VAL_DATA_DIR=${AUDIO_DIR}/validate
+EMBEDDING_TRAIN_DIR=${EMBEDDING_DIR}/train
+EMBEDDING_VALID_DIR=${EMBEDDING_DIR}/validate
 
 echo "APPROXIMATION=${APPROX_MODE}"
 echo "TRAIN_DATA_DIR=${TRAIN_DATA_DIR}"
