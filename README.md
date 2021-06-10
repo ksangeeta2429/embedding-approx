@@ -61,6 +61,16 @@ You can keep tracking the GSheet for training progress.
 ### Embedding Extranction on Downstream (SONY-UST) Dataset
 Download the annotated [SONYC-UST dataset](https://zenodo.org/record/3693077#.YMJX_vlKiUk). To extract embeddings on the data using the trained student model, run the job `jobs/emb_approx_mse/downstream/sonyc_ust/05-generate-embedding-samples-pca.sbatch`, setting the following parameters: 
 
+| Parameter           | Explanation                                                                                                   |
+| ------------------- | ------------------------------------------------------------------------------------------------------------- |
+| ASR                 | Sampling rate of student audio input representation                                                           |
+| NUM_MELS            | Number of melspectrogram bins in student audio input representation                                           |
+| NUM_DFT             | DFT size                                                                                                      |
+| HOP_LEN             | DFT hop length in student audio input representation                                                          |
+| L3_MODEL_PATH       | Path to best model in trained student model directory (Check column _Model Dir_ on GSheet tab `embedding_approx_mse`)                |
+| SONYC_UST_PATH      | Path to SONYC-UST data                                                                                        |
+| OUTPUT_DIR          | Path to output directory                                                                                      |
+
 ## How to Cite
 Kindly cite our work as:
 
