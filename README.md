@@ -22,8 +22,22 @@ Create a virtual environment `l3embedding-tf-12-gpu` using the `l3embedding-tf-1
 conda env create -f l3embedding-tf-12-gpu.yml
 ```
 
-### Knowledge Distillation
-Knowledge Distillation training involves submitting the following job 
+### Knowledge Distillation Training (Upstream)
+Knowledge Distillation training involves submitting the following job (assuming <img src="https://render.githubusercontent.com/render/math?math=\phi"> is PCA) on a SLURM HPC system: `embedding-approx/jobs/emb_approx_mse/upstream/03-train-approx-embedding-pca.sbatch`.
+
+The following variables in the job need to be set by the user:
+
+| Variable            | Explanation                                                                                                   |
+| ------------------- | ------------------------------------------------------------------------------------------------------------- |
+| APPROX_MODE         | The dimensionality reduction function used to transform teacher data ('pca' or 'umap')                        |
+| ASR                 | Sampling rate of student audio input representation                                                           |
+| NUM_MELS            | Number of melspectrogram bins in student audio input representation                                           |
+| HOP_LEN             | DFT hop length in student audio input representation                                                          |
+| AUDIO_DIR           | Path to raw in-domain audio files partitiond into train and validate subfolders                               |
+| EMBEDDING_DIR       | Path to transformed teacher embeddings on the above audio files partitiond into train and validate subfolders |
+| OUTPUT_DIR          | Path to output directory                                                                                      |
+| GOOGLE_DEV_APP_NAME | Name of GSheet for updating training results                                                                  |
+| GSHEET_ID           | Gsheet ID obtained from URL                                                                                   |
 
 ## How to Cite
 Kindly cite our work as:
