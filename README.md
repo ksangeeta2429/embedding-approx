@@ -33,7 +33,7 @@ conda env create -f l3embedding-tf-12-gpu.yml
 ```
 
 ### Knowledge Distillation Training (Upstream)
-Knowledge Distillation training involves submitting the following job (assuming <img src="https://render.githubusercontent.com/render/math?math=\phi"> is PCA) on a SLURM HPC system: `embedding-approx/jobs/emb_approx_mse/upstream/03-train-approx-embedding-pca.sbatch`.
+Knowledge Distillation training involves submitting the following job (assuming <img src="https://render.githubusercontent.com/render/math?math=\phi"> is PCA) on a SLURM HPC system: [`03-train-approx-embedding-pca.sbatch`](jobs/emb_approx_mse/upstream/03-train-approx-embedding-pca.sbatch).
 
 The following parameters in the job need to be set by the user:
 
@@ -59,7 +59,7 @@ sbatch 03-train-approx-embedding-pca.sbatch
 You can keep tracking the GSheet for training progress.
 
 ### Embedding Extraction on Downstream (SONY-UST) Dataset
-Download the annotated [SONYC-UST dataset](https://zenodo.org/record/3693077#.YMJX_vlKiUk). To extract embeddings on the data using the trained student model, run the job `jobs/emb_approx_mse/downstream/sonyc_ust/05-generate-embedding-samples-pca.sbatch`, setting the following parameters: 
+Download the annotated [SONYC-UST dataset](https://zenodo.org/record/3693077#.YMJX_vlKiUk). To extract embeddings on the data using the trained student model, run the job [`05-generate-embedding-samples-pca.sbatch`](jobs/emb_approx_mse/downstream/sonyc_ust/05-generate-embedding-samples-pca.sbatch), setting the following parameters: 
 
 | Parameter           | Explanation                                                                                                   |
 | ------------------- | ------------------------------------------------------------------------------------------------------------- |
@@ -74,7 +74,7 @@ Download the annotated [SONYC-UST dataset](https://zenodo.org/record/3693077#.YM
 Note that you can directly use our trained SEA student models on downstream data; for details, refer to the [`edgel3`](https://pypi.org/project/edgel3/) Python package.
 
 ### Downstream Classifier Training and Evaluation
-The final step is training a downstream classifier for SONYC-UST on the extracted embeddings. Run the job `jobs/emb_approx_mse/downstream/sonyc_ust/06-train-classifier-mil-pca.sbatch`, setting the following parameters:
+The final step is training a downstream classifier for SONYC-UST on the extracted embeddings. Run the job [`06-train-classifier-mil-pca.sbatch`](jobs/emb_approx_mse/downstream/sonyc_ust/06-train-classifier-mil-pca.sbatch), setting the following parameters:
 
 | Parameter           | Explanation                                                                                                   |
 | ------------------- | ------------------------------------------------------------------------------------------------------------- |
