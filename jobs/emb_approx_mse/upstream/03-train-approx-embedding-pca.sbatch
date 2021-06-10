@@ -33,6 +33,7 @@ OUTPUT_DIR=/path/to/output/dir
 GOOGLE_DEV_APP_NAME='gsheet-name'
 GSHEET_ID='gsheet-id-from-url'
 ### End user parameters
+
 TRAIN_DATA_DIR=${AUDIO_DIR}/train
 VAL_DATA_DIR=${AUDIO_DIR}/validate
 EMBEDDING_TRAIN_DIR=${EMBEDDING_DIR}/train
