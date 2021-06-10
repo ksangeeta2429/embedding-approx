@@ -71,6 +71,8 @@ Download the annotated [SONYC-UST dataset](https://zenodo.org/record/3693077#.YM
 | SONYC_UST_PATH      | Path to SONYC-UST data                                                                                        |
 | OUTPUT_DIR          | Path to output directory                                                                                      |
 
+Note that you can directly use our trained SEA student models on downstream data; for details, refer to the [`edgel3`](https://pypi.org/project/edgel3/) Python package.
+
 ## How to Cite
 Kindly cite our work as:
 
