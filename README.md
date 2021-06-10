@@ -99,4 +99,4 @@ Kindly cite our work as:
 ```
 
 ## Contact Us
-For questions, comments, etc. kindly contact the authors, [Sangeeta Srivastava](mailto:srivastava.206@osu.edu) or [Dhrubojyoti Roy](mailto:roy.174@osu.edu).
+Kindly contact the authors [Sangeeta Srivastava](mailto:srivastava.206@osu.edu) or [Dhrubojyoti Roy](mailto:roy.174@osu.edu) with questions, comments, or suggestions.
