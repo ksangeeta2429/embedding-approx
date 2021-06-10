@@ -26,8 +26,8 @@ NUM_HIDDEN=2
 HIDDEN_SIZE=128
 ## End user parameters
 
-ANNPATH=${SONYC_UST_PATH}/annotations.csv
-TAXPATH=${SONYC_UST_PATH}/dcase-ust-taxonomy.yaml
+ANNPATH=$SONYC_UST_PATH/annotations.csv
+TAXPATH=$SONYC_UST_PATH/dcase-ust-taxonomy.yaml
 
 echo "NUM_HIDDEN=$NUM_HIDDEN"
 echo "HIDDEN_SIZE=$HIDDEN_SIZE"
