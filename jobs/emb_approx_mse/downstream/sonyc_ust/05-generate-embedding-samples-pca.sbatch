@@ -17,23 +17,11 @@ module purge
 module load cudnn/9.0v7.3.0.29
 source activate l3embedding-tf-12-gpu
 
-# Process args
-WEIGHT_FILE=$1
-MODE=$2
-BATCH_SIZE=$3
-TIMESCALE=$4
-EMBLEN=$5
-WEIGHT_DIR="$(cut -d'.' -f1 <<<"$WEIGHT_FILE")"
-
-IFS='_'
-read -ra SPLITS <<< "$WEIGHT_DIR"
-ASR=${SPLITS[0]}
-NUM_MELS=${SPLITS[1]}
-HOP_LEN=${SPLITS[2]}
-NUM_DFT=${SPLITS[3]}
-IFS=' '
-
-#L3_POOLING_TYPE=$(echo $ASR | sed 's/0*$//')'K_'${NUM_MELS}'_'${HOP_LEN}'_'${NUM_DFT}
+## Begin user parameters
+ASR=8000
+NUM_MELS=64
+HOP_LEN=160
+NUM_DFT=1024
 
 echo "ASR=$ASR"
 echo "NUM_MELS=$NUM_MELS"
@@ -41,52 +29,30 @@ echo "HOP_LENGTH=$HOP_LEN"
 echo "DFT=$NUM_DFT"
 
 SRCDIR=.
-L3_MODEL_PATH=$SCRATCH/embedding_approx_mse/models/sonyc/pca/${MODE}/${TIMESCALE}/${BATCH_SIZE}/pca_batch_${BATCH_SIZE}_len_${EMBLEN}_kernel_linear/${WEIGHT_FILE}/model_best_valid_loss.h5
-SONYC_UST_PATH=/beegfs/dr2915/sonyc_ust
+L3_MODEL_PATH=/path/to/KD/student/models/model_best_valid_loss.h5
+SONYC_UST_PATH=/path/to/sonyc_ust
 DATA_DIR=$SONYC_UST_PATH/data
 METADATA_PATH=$DATA_DIR/annotations.csv
-OUTPUT_DIR=$SCRATCH/embedding_approx_mse
+OUTPUT_DIR=/path/to/output/directory
 DATASET='sonyc_ust'
 
 echo "WEIGHT FILE=$L3_MODEL_PATH"
 
-if [[ $WEIGHT_FILE == *"fmax_None"* ]]
-then
-    echo "No explicit FMAX"
-    python -u $SRCDIR/05_generate_embedding_samples.py \
-        --random-state 20180302 \
-        --verbose \
-        --features 'l3' \
-        --l3embedding-model-path $L3_MODEL_PATH \
-        --hop-size 0.1 \
-        --gpus 0 \
-        --samp-rate $ASR \
-        --num-mels $NUM_MELS \
-        --mel-hop-length $HOP_LEN \
-        --num-dft $NUM_DFT \
-        --with-melSpec \
-        --sonyc-ust-annotation-path $METADATA_PATH \
-        $DATASET \
-        $DATA_DIR \
-        $OUTPUT_DIR
-else
-    python $SRCDIR/05_generate_embedding_samples.py \
-        --random-state 20180302 \
-        --verbose \
-        --features 'l3' \
-        --l3embedding-model-path $L3_MODEL_PATH \
-        --hop-size 0.1 \
-        --gpus 0 \
-        --save-raw \
-        --samp-rate $ASR \
-        --num-mels $NUM_MELS \
-        --mel-hop-length $HOP_LEN \
-        --num-dft $NUM_DFT \
-        --freq-max $FMAX \
-        --with-melSpec \
-        --sonyc-ust-annotation-path $METADATA_PATH \
-        $DATASET \
-        $DATA_DIR \
-        $OUTPUT_DIR
-fi
+echo "No explicit FMAX"
+python -u $SRCDIR/05_generate_embedding_samples.py \
+    --random-state 20180302 \
+    --verbose \
+    --features 'l3' \
+    --l3embedding-model-path $L3_MODEL_PATH \
+    --hop-size 0.1 \
+    --gpus 0 \
+    --samp-rate $ASR \
+    --num-mels $NUM_MELS \
+    --mel-hop-length $HOP_LEN \
+    --num-dft $NUM_DFT \
+    --with-melSpec \
+    --sonyc-ust-annotation-path $METADATA_PATH \
+    $DATASET \
+    $DATA_DIR \
+    $OUTPUT_DIR
 
