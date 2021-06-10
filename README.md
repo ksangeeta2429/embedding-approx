@@ -14,12 +14,16 @@ The pipeline for solving Specialized Embedding Approximation (SEA) involves two 
     ```
     apt-get install libsndfile1
     ```
+3. [Gooogle Sheets API](https://developers.google.com/sheets/api/quickstart/python#prerequisites): Complete the _Prerequisites_ step of [creating a project with the API enabled](https://developers.google.com/workspace/guides/create-project).
 
 ### Setup
 Create a virtual environment `l3embedding-tf-12-gpu` using the `l3embedding-tf-12-gpu.yml` file in this repository:
 ```
 conda env create -f l3embedding-tf-12-gpu.yml
 ```
+
+### Knowledge Distillation
+Knowledge Distillation training involves submitting the following job 
 
 ## How to Cite
 Kindly cite our work as:
