@@ -14,8 +14,18 @@ The pipeline for solving Specialized Embedding Approximation (SEA) involves two 
     ```
     apt-get install libsndfile1
     ```
-3. [Gooogle Sheets API](https://developers.google.com/sheets/api/quickstart/python#prerequisites): Complete the _Prerequisites_ step of [creating a project with the API enabled](https://developers.google.com/workspace/guides/create-project).
+3. [Gooogle Sheets API](https://developers.google.com/sheets/api/quickstart/python#prerequisites): Complete the _Prerequisites_ step of [creating a project with the API enabled](https://developers.google.com/workspace/guides/create-project). Next, create the following tabs on your GSheet:
 
+    i) Create tab `embedding_approx_mse` for upstream (embedding) training results. Create the following columns on Row 1:
+    
+       | Username | Model Dir | Train Data Dir | Valid Data Dir | Emb Train Dir | Emb Valid Dir | Approximation mode | Emb key | Model Representation | Student Emb Len | # Epochs | Train Epoch Size | Valid Epoch Size | Train Batch Size | Valid Batch Size | Random State | Learning Rate | # GPUs | Checkpoint Interval | Latest Epoch | Latest Train Loss | Latest Valid Loss | Latest Train MAE | Latest Valid MAE | Best Train Loss | Best Valid Loss | Best Train MAE | Best Valid MAE |
+       
+    ii) Create tab `sonyc_ust` for downstream (classifier) training results. Create the following columns on Row 1:
+    
+       | Username | Model Type | Upstream Data | Commit | Annotation Dir | Taxonomy Dir | Feature Dir | Output Dir | Exp. ID | Hidden Layer Size | Num. Hidden Layers | Learning Rate | L2 Reg. | Batch Size | Num Epochs | Patience | Sensor Factor | Proximity Factor | No Standardize | Co-occurrence Loss | Co-occurrence Loss Factor | PCA | PCA Components | Label Mode | Oversample | Oversample Iters. | Threshold Type | Target Mode | No Timestamp | Split Path | Optimizer | Micro AUPRC | Micro F1 (@0.5) | Macro AUPRC | Coarse Tag AUPRC |
+       
+     **IMPORTANT:** Maintain the above order of columns. Do not sort the columns on the GSheets. Doing so would have the columns wrongly populated by the the respective training pipelines.
+    
 ### Setup
 Create a virtual environment `l3embedding-tf-12-gpu` using the `l3embedding-tf-12-gpu.yml` file in this repository:
 ```
