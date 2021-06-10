@@ -19,13 +19,15 @@ source activate l3embedding-tf-12-gpu
 SRCDIR=.
 
 ## Begin user parameters
-ANNPATH=/path/to/sonyc-ust/annotations.csv
-TAXPATH=/path/to/sonyc-ust/data/dcase-ust-taxonomy.yaml
+SONYC_UST_PATH=/path/to/sonyc-ust
 EMBDIR=/path/to/embedding/directory
 OUTPUTDIR=path/to/output/directory
 NUM_HIDDEN=2
 HIDDEN_SIZE=128
 ## End user parameters
+
+ANNPATH=${SONYC_UST_PATH}/annotations.csv
+TAXPATH=${SONYC_UST_PATH}/dcase-ust-taxonomy.yaml
 
 echo "NUM_HIDDEN=$NUM_HIDDEN"
 echo "HIDDEN_SIZE=$HIDDEN_SIZE"
